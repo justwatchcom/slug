@@ -62,7 +62,9 @@ func MakeLang(s string, lang string) (slug string) {
 	// Process all non ASCII symbols
 	slug = unidecode.Unidecode(slug)
 
-	slug = strings.ToLower(slug)
+	if lang != "de" {
+	  slug = strings.ToLower(slug)
+	}
 
 	// Process all remaining symbols
 	slug = regexp.MustCompile("[^a-z0-9-_]").ReplaceAllString(slug, "-")
