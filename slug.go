@@ -6,9 +6,10 @@
 package slug
 
 import (
-	"gopkgs.com/unidecode.v1"
 	"regexp"
 	"strings"
+
+	"gopkgs.com/unidecode.v1"
 )
 
 var (
@@ -63,11 +64,11 @@ func MakeLang(s string, lang string) (slug string) {
 	slug = unidecode.Unidecode(slug)
 
 	if lang != "de" {
-	  slug = strings.ToLower(slug)
+		slug = strings.ToLower(slug)
 	}
 
 	// Process all remaining symbols
-	slug = regexp.MustCompile("[^a-z0-9-_]").ReplaceAllString(slug, "-")
+	slug = regexp.MustCompile("[^A-Za-z0-9-_]").ReplaceAllString(slug, "-")
 	slug = regexp.MustCompile("-+").ReplaceAllString(slug, "-")
 	slug = strings.Trim(slug, "-")
 

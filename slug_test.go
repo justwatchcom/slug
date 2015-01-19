@@ -66,7 +66,7 @@ func TestSlugMakeLang(t *testing.T) {
 		want string
 	}{
 		{"en", "This & that", "this-and-that"},
-		{"de", "This & that", "this-und-that"},
+		{"de", "This & That", "This-und-That"},
 		{"pl", "This & that", "this-i-that"},
 		{"es", "This & that", "this-y-that"},
 		{"test", "This & that", "this-and-that"}, // unknown lang, fallback to "en"
@@ -91,7 +91,7 @@ func TestSlugMakeUserSubstituteLang(t *testing.T) {
 	}{
 		{map[string]string{"'": " "}, "en", "That's great", "that-s-great"},
 		{map[string]string{"&": "or"}, "en", "This & that", "this-or-that"}, // by default "&" => "and"
-		{map[string]string{"&": "or"}, "de", "This & that", "this-or-that"}, // by default "&" => "und"
+		{map[string]string{"&": "or"}, "de", "This & That", "This-or-That"}, // by default "&" => "und"
 	}
 
 	for index, smust := range testCases {
