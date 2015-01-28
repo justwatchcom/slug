@@ -8,6 +8,12 @@ package slug
 var deSub = map[rune]string{
 	'&': "und",
 	'@': "an",
+	'ä': "ae",
+	'ö': "oe",
+	'ü': "ue",
+	'Ä': "Ae",
+	'Ö': "Oe",
+	'Ü': "Ue",
 }
 
 var enSub = map[rune]string{
